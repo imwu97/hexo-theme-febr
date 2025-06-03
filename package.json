@@ -1,0 +1,12 @@
+{
+  "name": "hexo-theme-febr",
+  "version": "1.0.0",
+  "description": "A simple and elegant theme for Hexo.",
+  "scripts": {},
+  "keywords": [
+    "hexo",
+    "theme",
+    "febr"
+  ],
+  "dependencies": {}
+}

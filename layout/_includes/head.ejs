@@ -1,0 +1,10 @@
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+<!-- Title -->
+<% var title = page.title; %>
+<title><% if (title) { %><%= title %> | <% } %><%= config.title %></title>
+
+<!-- Css -->
+<%- css('css/style') %>
