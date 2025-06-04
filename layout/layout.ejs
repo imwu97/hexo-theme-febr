@@ -1,25 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<%= config.language %>">
   <head>
     <%- partial('_includes/head') %>
   </head>
-  <body>
-    <div id="app">
-      <!-- Header Start -->
-      <header>Header</header>
-      <!-- Header End -->
+  <body class="bg-[#eaeaea] dark:bg-[#333] text-[#999] antialiased">
+    <div id="app" class="w-full min-h-screen flex flex-col">
+      <!-- 顶部导航栏 开始 -->
+      <%- partial('_partials/navbar') %>
+      <!-- 顶部导航栏 结束 -->
 
-      <!-- Body Start -->
-      <%- body %>
-      <!-- Body End -->
+      <!-- 内容 开始 -->
+      <div class="max-w-4xl w-full mx-auto mt-24"><%- body %></div>
+      <!-- 内容 结束 -->
 
-      <!-- Footer Start -->
-      <footer>Footer</footer>
-      <!-- Footer End -->
+      <!-- 页脚 开始 -->
+      <%- partial('_partials/footer') %>
+      <!-- 页脚 结束 -->
+
+      <!-- 悬浮按钮 开始 -->
+      <div
+        id="back_top"
+        v-show="scrollY > 20"
+        @click="backTop()"
+        class="no-underline fixed bottom-10 right-8 cursor-pointer shadow-md text-white dark:text-[#333] bg-yellow-300 hover:bg-yellow-400 w-8 h-8 rounded leading-8 text-xl text-center">
+        <i class="ri-arrow-up-s-line"></i>
+      </div>
+      <!-- 悬浮按钮 结束 -->
     </div>
 
-    <!-- Script Start -->
+    <!-- 脚本 开始 -->
     <%- partial('_includes/script') %>
-    <!-- Script End -->
+    <!-- 脚本 结束 -->
   </body>
 </html>
