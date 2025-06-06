@@ -1,9 +1,9 @@
 <div
-  class="w-full mx-auto pt-8 md:px-0 bg-white dark:bg-[#444] rounded-none md:rounded shadow">
+  class="w-full mx-auto pt-8 md:px-0 bg-[#444] rounded-none md:rounded shadow">
   <!-- 文章封面 开始 -->
   <div
     class="relative flex mx-8 mb-4 flex-col md:flex-row px-4 md:px-0 rounded bg-no-repeat bg-center bg-cover bg-scroll"
-    style="background-image: url('/img/home-bg.jpg')">
+    style="background-image: url('<%- page.feature %>')">
     <div
       class="absolute top-0 left-0 h-full w-full rounded bg-[#212529] opacity-50"
       style="
@@ -30,10 +30,8 @@
             <div class="text-4xl font-bold text-white"><%- page.title %></div>
 
             <!-- 发布时间 -->
-            <div class="text-xs italic mt-4 text-white">
-              Posted on <span><%- date(page.date) %></span>
-              <span>, </span>
-              <span><%-relative_date(page.date) %></span>
+            <div class="text-sm italic mt-4 text-white">
+              <%= __('Posted on') %> <span><%- date(page.date) %></span>
             </div>
           </div>
         </div>
@@ -54,31 +52,31 @@
 <!-- 分页 开始 -->
 <% if (page.prev || page.next) { %>
 <div class="my-4 px-4 md:px-0 flex justify-between">
-  <!-- 上一页 开始 -->
+  <!-- 上一篇 开始 -->
   <% if (page.prev) { %>
   <a
     href="<%- url_for(page.prev.path) %>"
-    class="text-[#333] dark:text-[#eaeaea] bg-white dark:bg-[#444] inline-flex items-center rounded text-sm font-semibold px-4 py-2 shadow transition-all duration-100 hover:shadow-md">
+    class="text-[#eaeaea] bg-[#444] inline-flex items-center rounded text-sm font-semibold px-4 py-2 shadow transition-all duration-100 hover:shadow-md">
     <div>
       <i class="ri-arrow-left-line mr-4"></i>
-      上一页
+      <%= __('Prev post') %>
     </div>
   </a>
   <% } %>
-  <!-- 上一页 结束 -->
+  <!-- 上一篇 结束 -->
 
-  <!-- 下一页 开始 -->
+  <!-- 下一篇 开始 -->
   <% if (page.next) { %>
   <a
     href="<%- url_for(page.next.path) %>"
-    class="text-[#333] dark:text-[#eaeaea] bg-white dark:bg-[#444] inline-flex items-center rounded text-sm font-semibold px-4 py-2 shadow transition-all duration-100 hover:shadow-md">
+    class="text-[#eaeaea] bg-[#444] inline-flex items-center rounded text-sm font-semibold px-4 py-2 shadow transition-all duration-100 hover:shadow-md">
     <div>
-      下一页
+      <%= __('Next post') %>
       <i class="ri-arrow-right-line ml-4"></i>
     </div>
   </a>
   <% } %>
-  <!-- 下一页 结束 -->
+  <!-- 下一篇 结束 -->
 </div>
 <% } %>
 <!-- 分页 结束 -->

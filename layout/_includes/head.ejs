@@ -3,8 +3,17 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
 <!-- Title -->
-<% var title = page.title; %>
-<title><% if (title) { %><%= title %> | <% } %><%= config.title %></title>
+<% var title = page.title; if (is_archive()) { title = __('Archives'); } else if
+(is_category()) { title = __('Categories'); } else if (is_tag()) { title =
+__('Tags'); } else if (title === 'About') { title = __('About'); } %>
+<title>
+  <% if (title) { %> <%= __(title) %> <% if (page.tag) { %> : <%= page.tag %><%
+  } %> <% if (page.category) { %> : <%= page.category %><% } %> | <% } %> <%=
+  config.title %>
+</title>
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="/img/favicon.png" />
 
 <!-- Fonts -->
 <link

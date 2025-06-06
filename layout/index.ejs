@@ -15,11 +15,11 @@
 <!-- 网站介绍 结束 -->
 
 <!-- 文章 开始 -->
-<div
-  class="mx-0 md:px-0 bg-white dark:bg-[#444] rounded-none md:rounded-lg shadow">
+<div class="mx-0 md:px-0 bg-[#444] rounded-none md:rounded-lg shadow">
   <% page.posts.each(function(post) { %>
+  <!-- 文章项 开始 -->
   <div
-    class="p-8 border-b border-[#eaeaea] dark:border-[#333] flex flex-col md:flex-row relative overflow-hidden">
+    class="p-8 border-b border-[#333] flex flex-col md:flex-row relative overflow-hidden">
     <div class="flex-1 order-2 md:order-1">
       <!-- 标题 -->
       <div class="text-2xl font-semibold mb-4">
@@ -27,7 +27,7 @@
           class="ri-star-line text-orange-200 text-2xl absolute left-0 ml-1 rotate-90"></i>
         <a
           href="<%- url_for(post.path) %>"
-          class="text-[#777] dark:text-[#eaeaea] text-ellipsis border-b-2 border-dotted border-[#eaeaea] dark:border-[#888] hover:border-[#444] dark:hover:border-[#eaeaea] transition-all duration-100">
+          class="text-[#eaeaea] text-ellipsis border-b-2 border-dotted border-[#888] hover:border-[#eaeaea] transition-all duration-100">
           <%= post.title %>
         </a>
       </div>
@@ -40,25 +40,28 @@
       </div>
 
       <!-- 概况 -->
-      <div class="mb-4 text-[#666] dark:text-[#999]">
+      <div class="mb-4 text-[#999]">
         <%- post.description || post.excerpt %>
       </div>
 
       <!-- 阅读更多按钮 -->
       <a
         href="<%- url_for(post.path) %>"
-        class="bg-indigo-300 dark:bg-yellow-300 px-4 py-2 text-xs dark:text-[#333] font-semibold inline-flex items-center rounded shadow transition-all duration-100">
-        Read more
+        class="bg-yellow-300 px-4 py-2 text-xs text-[#333] font-semibold inline-flex items-center rounded shadow transition-all duration-100">
+        <%= __('Read more') %>
       </a>
     </div>
 
+    <% if (post.feature) { %>
     <!-- 文章封面图 -->
     <img
       loading="lazy"
-      src="<%- post.feature ? post.feature : '/img/post-cover.png' %>"
+      src="<%- post.feature %>"
       alt="<%= post.title %>"
       class="flex-shrink-0 self-start md:ml-4 mb-4 md:mb-0 rounded-sm object-cover order-1 md:order-2 w-full h-40 md:w-56 md:h-32" />
+    <% } %>
   </div>
+  <!-- 文章项 结束 -->
   <% }); %>
 </div>
 <!-- 文章 结束 -->
@@ -70,9 +73,9 @@
   <% if (page.prev !== 0) { %>
   <a
     href="<%- url_for(page.prev_link) %>"
-    class="text-[#333] dark:text-[#eaeaea] bg-white dark:bg-[#444] inline-flex items-center rounded text-sm font-semibold px-4 py-2 shadow transition-all duration-100 hover:shadow-md">
+    class="text-[#eaeaea] bg-[#444] inline-flex items-center rounded text-sm font-semibold px-4 py-2 shadow transition-all duration-100 hover:shadow-md">
     <i class="ri-arrow-left-line mr-4"></i>
-    上一页
+    <%= __('Prev') %>
   </a>
   <% } %>
   <!-- 上一页 结束 -->
@@ -81,8 +84,8 @@
   <% if (page.next !== 0) { %>
   <a
     href="<%- url_for(page.next_link) %>"
-    class="text-[#333] dark:text-[#eaeaea] bg-white dark:bg-[#444] inline-flex items-center rounded text-sm font-semibold px-4 py-2 shadow transition-all duration-100 hover:shadow-md">
-    下一页
+    class="text-[#eaeaea] bg-[#444] inline-flex items-center rounded text-sm font-semibold px-4 py-2 shadow transition-all duration-100 hover:shadow-md">
+    <%= __('Next') %>
     <i class="ri-arrow-right-line ml-4"></i>
   </a>
   <% } %>
