@@ -7,6 +7,7 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --color-red-500: oklch(63.7% 0.237 25.331);
     --color-orange-200: oklch(90.1% 0.076 70.697);
     --color-yellow-300: oklch(90.5% 0.182 98.111);
     --color-yellow-400: oklch(85.2% 0.199 91.936);
@@ -30,6 +31,7 @@
     --font-weight-bold: 700;
     --radius-sm: 0.25rem;
     --radius-lg: 0.5rem;
+    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
     --default-transition-duration: 150ms;
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
@@ -212,9 +214,6 @@
   .order-2 {
     order: 2;
   }
-  .m-2 {
-    margin: calc(var(--spacing) * 2);
-  }
   .mx-0 {
     margin-inline: calc(var(--spacing) * 0);
   }
@@ -251,9 +250,6 @@
   .mr-1\.5 {
     margin-right: calc(var(--spacing) * 1.5);
   }
-  .mr-2 {
-    margin-right: calc(var(--spacing) * 2);
-  }
   .mr-4 {
     margin-right: calc(var(--spacing) * 4);
   }
@@ -277,6 +273,9 @@
   }
   .ml-\[1px\] {
     margin-left: 1px;
+  }
+  .contents {
+    display: contents;
   }
   .flex {
     display: flex;
@@ -340,6 +339,9 @@
   }
   .rotate-90 {
     rotate: 90deg;
+  }
+  .transform {
+    transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
   }
   .cursor-pointer {
     cursor: pointer;
@@ -421,9 +423,6 @@
   .border-\[\#888\] {
     border-color: #888;
   }
-  .border-\[\#eaeaea\] {
-    border-color: #eaeaea;
-  }
   .border-white {
     border-color: var(--color-white);
   }
@@ -438,21 +437,6 @@
   }
   .bg-\[\#212529\] {
     background-color: #212529;
-  }
-  .bg-\[\#33333300\] {
-    background-color: #33333300;
-  }
-  .bg-\[\#eaeaea\] {
-    background-color: #eaeaea;
-  }
-  .bg-\[\#faf9f7\] {
-    background-color: #faf9f7;
-  }
-  .bg-indigo-300 {
-    background-color: var(--color-indigo-300);
-  }
-  .bg-white {
-    background-color: var(--color-white);
   }
   .bg-yellow-300 {
     background-color: var(--color-yellow-300);
@@ -563,9 +547,6 @@
   .text-\[\#666\] {
     color: #666;
   }
-  .text-\[\#777\] {
-    color: #777;
-  }
   .text-\[\#999\] {
     color: #999;
   }
@@ -574,6 +555,9 @@
   }
   .text-orange-200 {
     color: var(--color-orange-200);
+  }
+  .text-red-500 {
+    color: var(--color-red-500);
   }
   .text-white {
     color: var(--color-white);
@@ -631,12 +615,9 @@
     --tw-duration: 300ms;
     transition-duration: 300ms;
   }
-  .hover\:border-\[\#444\] {
-    &:hover {
-      @media (hover: hover) {
-        border-color: #444;
-      }
-    }
+  .ease-in-out {
+    --tw-ease: var(--ease-in-out);
+    transition-timing-function: var(--ease-in-out);
   }
   .hover\:border-\[\#eaeaea\] {
     &:hover {
@@ -649,13 +630,6 @@
     &:hover {
       @media (hover: hover) {
         background-color: #444;
-      }
-    }
-  }
-  .hover\:bg-yellow-400 {
-    &:hover {
-      @media (hover: hover) {
-        background-color: var(--color-yellow-400);
       }
     }
   }
@@ -748,65 +722,26 @@
       box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
     }
   }
-  .dark\:border-\[\#333\] {
-    @media (prefers-color-scheme: dark) {
-      border-color: #333;
-    }
-  }
-  .dark\:border-\[\#888\] {
-    @media (prefers-color-scheme: dark) {
-      border-color: #888;
-    }
-  }
-  .dark\:bg-\[\#333\] {
-    @media (prefers-color-scheme: dark) {
-      background-color: #333;
-    }
-  }
-  .dark\:bg-\[\#444\] {
-    @media (prefers-color-scheme: dark) {
-      background-color: #444;
-    }
-  }
-  .dark\:bg-\[\#666\] {
-    @media (prefers-color-scheme: dark) {
-      background-color: #666;
-    }
-  }
-  .dark\:bg-\[\#33333300\] {
-    @media (prefers-color-scheme: dark) {
-      background-color: #33333300;
-    }
-  }
-  .dark\:bg-yellow-300 {
-    @media (prefers-color-scheme: dark) {
-      background-color: var(--color-yellow-300);
-    }
-  }
-  .dark\:text-\[\#333\] {
-    @media (prefers-color-scheme: dark) {
-      color: #333;
-    }
-  }
-  .dark\:text-\[\#999\] {
-    @media (prefers-color-scheme: dark) {
-      color: #999;
-    }
-  }
-  .dark\:text-\[\#eaeaea\] {
-    @media (prefers-color-scheme: dark) {
-      color: #eaeaea;
-    }
-  }
-  .dark\:hover\:border-\[\#eaeaea\] {
-    @media (prefers-color-scheme: dark) {
-      &:hover {
-        @media (hover: hover) {
-          border-color: #eaeaea;
-        }
-      }
-    }
-  }
+}
+@property --tw-rotate-x {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-rotate-y {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-rotate-z {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-skew-x {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-skew-y {
+  syntax: "*";
+  inherits: false;
 }
 @property --tw-border-style {
   syntax: "*";
@@ -931,9 +866,18 @@
   syntax: "*";
   inherits: false;
 }
+@property --tw-ease {
+  syntax: "*";
+  inherits: false;
+}
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
+      --tw-rotate-x: initial;
+      --tw-rotate-y: initial;
+      --tw-rotate-z: initial;
+      --tw-skew-x: initial;
+      --tw-skew-y: initial;
       --tw-border-style: solid;
       --tw-leading: initial;
       --tw-font-weight: initial;
@@ -962,6 +906,7 @@
       --tw-backdrop-saturate: initial;
       --tw-backdrop-sepia: initial;
       --tw-duration: initial;
+      --tw-ease: initial;
     }
   }
 }

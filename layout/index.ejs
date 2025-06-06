@@ -18,13 +18,18 @@
 <div class="mx-0 md:px-0 bg-[#444] rounded-none md:rounded-lg shadow">
   <% page.posts.each(function(post) { %>
   <!-- 文章项 开始 -->
+  <% if (post.published) { %>
   <div
     class="p-8 border-b border-[#333] flex flex-col md:flex-row relative overflow-hidden">
     <div class="flex-1 order-2 md:order-1">
       <!-- 标题 -->
       <div class="text-2xl font-semibold mb-4">
+        <% if (post.isTop) { %>
+        <!-- 标记 开始 -->
         <i
           class="ri-star-line text-orange-200 text-2xl absolute left-0 ml-1 rotate-90"></i>
+        <!-- 标记 结束 -->
+        <% } %>
         <a
           href="<%- url_for(post.path) %>"
           class="text-[#eaeaea] text-ellipsis border-b-2 border-dotted border-[#888] hover:border-[#eaeaea] transition-all duration-100">
@@ -61,6 +66,7 @@
       class="flex-shrink-0 self-start md:ml-4 mb-4 md:mb-0 rounded-sm object-cover order-1 md:order-2 w-full h-40 md:w-56 md:h-32" />
     <% } %>
   </div>
+  <% } %>
   <!-- 文章项 结束 -->
   <% }); %>
 </div>

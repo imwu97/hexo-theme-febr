@@ -30,6 +30,7 @@
         <div class="text-2xl font-semibold"><%= year %></div>
         <div class="">
           <% years[year].map(function(post){ %>
+          <!-- 文章项 开始 -->
           <div class="relative">
             <i
               class="ri-star-line text-orange-200 absolute text-2xl left-0 rotate-90"></i>
@@ -39,6 +40,7 @@
               </a>
             </div>
           </div>
+          <!-- 文章项 结束 -->
           <% }); %>
         </div>
       </div>
