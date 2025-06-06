@@ -4,6 +4,8 @@
 
 # hexo-theme-febr
 
+![license](https://img.shields.io/github/license/fineNineJun/hexo-theme-febr?color=FF5531)
+
 </div>
 
 ## 💻 安裝
