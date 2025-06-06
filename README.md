@@ -4,6 +4,7 @@
 
 # hexo-theme-febr
 
+![hexo version](https://img.shields.io/badge/hexo-7.3.0+-0e83c)
 ![license](https://img.shields.io/github/license/fineNineJun/hexo-theme-febr?color=FF5531)
 
 </div>
