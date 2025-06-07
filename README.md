@@ -5,7 +5,7 @@
 # hexo-theme-febr
 
 ![hexo version](https://img.shields.io/badge/hexo-7.3.0+-0e83c)
-![license](https://img.shields.io/github/license/fineNineJun/hexo-theme-febr?color=FF5531)
+![license](https://img.shields.io/github/license/imwu97/hexo-theme-febr?color=FF5531)
 
 </div>
 
@@ -16,7 +16,7 @@
 在博客根目錄裡安裝穩定版【推薦】
 
 ```powershell
-git clone -b master https://github.com/fineNineJun/hexo-theme-febr.git themes/febr
+git clone -b master https://github.com/imwu97/hexo-theme-febr.git themes/febr
 ```
 
 ## ⚙ 應用主題
